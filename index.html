@@ -227,7 +227,7 @@
 
   <!-- BOTÓN WHATSAPP (se muestra después del gate) -->
   <a id="wa-btn" class="btn-whatsapp" href="#" target="_blank" rel="noopener">
-    💬 OBTENER MI BONO AHORA
+    💬 IR A WHATSAPP
   </a>
 
   <script>
@@ -281,7 +281,7 @@
       } catch(e){}
 
       // ✅ Mensaje limpio (sin UTM / fbclid)
-      const text = `Hola! Vengo por el BONO +30%. Juego: ${selected||''}.`;
+      const text = `Hola! Quiero aumentar mis clientes en mi panel. Interés: ${selected||''}.`;
       const wa = `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
       var btn = $('#wa-btn');
