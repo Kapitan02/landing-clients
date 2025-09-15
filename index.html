@@ -163,16 +163,37 @@
     /* Fix 2: textos verdes en UNA sola línea en mobile (sin hacerlos minúsculos) */
     @media (max-width:600px){
       .retiros{
-        /* no se parte de línea */
         white-space: nowrap;
-
-        /* tamaño fluido: baja lo justo en pantallas chicas */
         font-size: clamp(1.0rem, 4.2vw, 1.25rem);
-
-        /* compacta un toque para que entre, sin perder legibilidad */
         line-height: 1.05;
         letter-spacing: -0.2px;
         margin-bottom: 10px;
+      }
+    }
+
+    /* NUEVO: radios alineados en 2 columnas en móvil + hint */
+    @media (max-width:600px){
+      .gate .opts{
+        display:grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap:10px;
+        justify-items:stretch;
+        align-items:stretch;
+      }
+      .gate label{
+        width:100%;
+        justify-content:center;
+        text-align:center;
+        padding:12px 10px;
+        font-size: clamp(0.95rem, 3.1vw, 1.05rem); /* no baja demasiado */
+        line-height:1.15;
+      }
+      .gate label input{ flex-shrink:0; }
+      .gate .hint{
+        margin-top:8px;
+        font-size:0.98rem;
+        color:#c8ffde;
+        text-align:center;
       }
     }
   </style>
@@ -188,13 +209,17 @@
   <div class="retiros">MENSAJES AL COSTO $</div>
   <div class="instrucciones">Escribinos para escalar tu negocio</div>
 
-  <!-- GATE DE INTENCIÓN (+18 + elección) -->
+  <!-- GATE DE INTENCIÓN -->
   <div class="gate" id="gate">
     <h4>Marcá tu objetivo</h4>
     <div class="opts">
       <label><input type="radio" name="juego" value="Casino"> Aprender a manejar mis propias campañas</label>
       <label><input type="radio" name="juego" value="Slots"> Contratar servicios</label>
     </div>
+
+    <!-- TEXTO GUÍA NUEVO -->
+    <div class="hint">Confirmá y toca Continuar</div>
+
     <label class="legal"><input type="checkbox" id="mayor"> Soy dueño de un casino y quiero aumentar mi ganancia mensual</label>
     <button id="continuar" disabled>Continuar</button>
     <div class="disclaimer">Juego para mayores de 18. Jugar con responsabilidad.</div>
