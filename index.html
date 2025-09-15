@@ -151,12 +151,28 @@
       box-shadow: 0 0 0 3px rgba(255,255,255,.35), 0 0 0 6px rgba(37,211,102,.35);
     }
 
-    /* Fix: título naranja muy grande en mobile */
+    /* Fix 1: títulos naranjas más chicos en mobile */
     @media (max-width:600px){
       .bono{
-        font-size: clamp(1.6rem, 7vw, 2.1rem); /* antes: 2.6rem */
+        font-size: clamp(1.6rem, 7vw, 2.1rem);
         line-height: 1.1;
         margin-bottom: 8px;
+      }
+    }
+
+    /* Fix 2: textos verdes en UNA sola línea en mobile (sin hacerlos minúsculos) */
+    @media (max-width:600px){
+      .retiros{
+        /* no se parte de línea */
+        white-space: nowrap;
+
+        /* tamaño fluido: baja lo justo en pantallas chicas */
+        font-size: clamp(1.0rem, 4.2vw, 1.25rem);
+
+        /* compacta un toque para que entre, sin perder legibilidad */
+        line-height: 1.05;
+        letter-spacing: -0.2px;
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -271,4 +287,3 @@
   </script>
 </body>
 </html>
-
