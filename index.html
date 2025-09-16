@@ -185,7 +185,7 @@
         justify-content:center;
         text-align:center;
         padding:12px 10px;
-        font-size: clamp(0.95rem, 3.1vw, 1.05rem); /* no baja demasiado */
+        font-size: clamp(0.95rem, 3.1vw, 1.05rem);
         line-height:1.15;
       }
       .gate label input{ flex-shrink:0; }
@@ -213,8 +213,9 @@
   <div class="gate" id="gate">
     <h4>Marcá tu objetivo</h4>
     <div class="opts">
-      <label><input type="radio" name="juego" value="Casino"> Aprender a manejar mis propias campañas</label>
-      <label><input type="radio" name="juego" value="Slots"> Contratar servicios</label>
+      <!-- 👉 valores ACTUALIZADOS para que el mensaje use los nombres nuevos -->
+      <label><input type="radio" name="juego" value="Aprender a manejar mis propias campañas"> Aprender a manejar mis propias campañas</label>
+      <label><input type="radio" name="juego" value="Contratar servicios"> Contratar servicios</label>
     </div>
 
     <!-- TEXTO GUÍA NUEVO -->
@@ -280,7 +281,7 @@
         });
       } catch(e){}
 
-      // ✅ Mensaje limpio (sin UTM / fbclid)
+      // ✅ Mensaje limpio (sin UTM / fbclid) con los nombres NUEVOS
       const text = `Hola! Quiero aumentar mis clientes en mi panel. Interés: ${selected||''}.`;
       const wa = `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
@@ -305,10 +306,9 @@
           utm_term: qs.get('utm_term') || ''
         });
       } catch(e){}
-      // Si querés sumar un estándar también:
-      // if(window.fbq) fbq('track','Lead', {value:1.00, currency:'USD'});
     });
   })();
   </script>
 </body>
 </html>
+
